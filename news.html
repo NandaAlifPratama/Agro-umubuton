@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>informasi center agroteknologi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-green: #0e5c2f;
+            --dark-green: #27ae60;
+            --light-green: #55efc4;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .navbar {
+            height: 100vh;
+            width: 300px;
+            position: fixed;
+            top: 0;
+            left: -300px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .navbar.active {
+            left: 0;
+        }
+        
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-toggle.active {
+            transform: translateX(300px);
+        }
+        
+        .menu-line {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active .menu-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        
+        .menu-toggle.active .menu-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active .menu-line:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+        
+        .content.active {
+            margin-left: 300px;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .news-category {
+            background: linear-gradient(to right, var(--primary-green), var(--light-green));
+        }
+        
+        @media (max-width: 768px) {
+            .content.active {
+                margin-left: 0;
+            }
+            
+            .navbar {
+                width: 250px;
+                left: -250px;
+            }
+            
+            .menu-toggle.active {
+                transform: translateX(250px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="p-6">
+            <h1 class="text-white text-xl font-bold mb-8">Portal Berita</h1>
+            <ul class="space-y-4">
+                <li><a href="index.html" class="text-white hover:text-gray-200 block py-2 px-4 rounded transition duration-200">Beranda</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200 block py-2 px-4 rounded transition duration-200">Politik</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200 block py-2 px-4 rounded transition duration-200">Ekonomi</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200 block py-2 px-4 rounded transition duration-200">Olahraga</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200 block py-2 px-4 rounded transition duration-200">Hiburan</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200 block py-2 px-4 rounded transition duration-200">Teknologi</a></li>
+                <li><a href="#" class="text-white hover:text-gray-200 block py-2 px-4 rounded transition duration-200">Kesehatan</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="menu-toggle">
+        <div class="menu-line bg-green-600"></div>
+        <div class="menu-line bg-green-600"></div>
+        <div class="menu-line bg-green-600"></div>
+    </div>
+
+    <div class="content min-h-screen">
+        <header class="news-category text-white py-8 mb-8">
+            <div class="container mx-auto px-4">
+                <h1 class="text-3xl md:text-4xl font-bold">informasi center agroteknologi</h1>
+                <p class="mt-2">Update berita terbaru sepanjang hari</p>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 pb-12">
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Pemandangan kota metropolitan dengan gedung pencakar langit di malam hari" class="w-full h-48 object-cover"/>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">Pendaftaran</span>
+                            <h3 class="text-xl font-semibold mb-2">Pendaftaran mahasiswa 2025</h3>
+                            <p class="text-gray-600 mb-4">Universitas muslim buton kini telah membuka pendaftaran mahasiswa baru ang...</p>
+                            <a href="#" class="text-green-600 font-medium hover:text-green-800 transition duration-200">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Seseorang sedang menggunakan laptop dengan grafik saham di layar" class="w-full h-48 object-cover"/>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">Ekonomi</span>
+                            <h3 class="text-xl font-semibold mb-2">IHSG Menguat di Tengah Ketidakpastian Global</h3>
+                            <p class="text-gray-600 mb-4">Indeks Harga Saham Gabungan (IHSG) mencatat kenaikan 1,2% di tengah tekanan pasar global...</p>
+                            <a href="#" class="text-green-600 font-medium hover:text-green-800 transition duration-200">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Pemain sepak bola sedang merayakan gol di lapangan hijau" class="w-full h-48 object-cover"/>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">Olahraga</span>
+                            <h3 class="text-xl font-semibold mb-2">Timnas Indonesia Juara Turnamen Internasional</h3>
+                            <p class="text-gray-600 mb-4">Timnas Indonesia berhasil mengalahkan tuan rumah di babak final dengan skor 2-1...</p>
+                            <a href="#" class="text-green-600 font-medium hover:text-green-800 transition duration-200">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Artis terkenal sedang berpose di karpet merah" class="w-full h-48 object-cover"/>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">Hiburan</span>
+                            <h3 class="text-xl font-semibold mb-2">Festival Film Internasional Kembali Digelar</h3>
+                            <p class="text-gray-600 mb-4">Festival film internasional tahunan kembali digelar dengan peserta dari 50 negara...</p>
+                            <a href="#" class="text-green-600 font-medium hover:text-green-800 transition duration-200">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Robot humanoid sedang berinteraksi dengan manusia" class="w-full h-48 object-cover"/>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">Teknologi</span>
+                            <h3 class="text-xl font-semibold mb-2">AI Terbaru Mampu Berpikir Layaknya Manusia</h3>
+                            <p class="text-gray-600 mb-4">Perusahaan teknologi meluncurkan model AI terbaru yang diklaim memiliki kemampuan...</p>
+                            <a href="#" class="text-green-600 font-medium hover:text-green-800 transition duration-200">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="card bg-white rounded-lg overflow-hidden shadow-md">
+                        <div class="card-image">
+                            <img src="https://placehold.co/600x400" alt="Dokter sedang memeriksa pasien di rumah sakit modern" class="w-full h-48 object-cover"/>
+                        </div>
+                        <div class="p-6">
+                            <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mb-2">Kesehatan</span>
+                            <h3 class="text-xl font-semibold mb-2">Vaksin Baru Ditemukan Untuk Penyakit Langka</h3>
+                            <p class="text-gray-600 mb-4">Tim peneliti berhasil mengembangkan vaksin untuk penyakit langka yang selama ini...</p>
+                            <a href="#" class="text-green-600 font-medium hover:text-green-800 transition duration-200">Baca Selengkapnya →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-gray-800 text-white py-8">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap -mx-4">
+                    <div class="w-full md:w-1/3 px-4 mb-6">
+                        <h3 class="text-lg font-semibold mb-4">Portal Berita</h3>
+                        <p class="text-gray-400 mb-4">Portal berita terpercaya yang menyajikan informasi terkini dari berbagai bidang.</p>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-200">Baca Lebih Lanjut →</a>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-6">
+                        <h3 class="text-lg font-semibold mb-4">Kategori</h3>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#" class="hover:text-green-400 transition duration-200">Politik</a></li>
+                            <li><a href="#" class="hover:text-green-400 transition duration-200">Ekonomi</a></li>
+                            <li><a href="#" class="hover:text-green-400 transition duration-200">Olahraga</a></li>
+                            <li><a href="#" class="hover:text-green-400 transition duration-200">Hiburan</a></li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/3 px-4 mb-6">
+                        <h3 class="text-lg font-semibold mb-4">Berlangganan</h3>
+                        <div class="flex">
+                            <input type="email" placeholder="Alamat Email" class="px-4 py-2 rounded-l focus:outline-none text-gray-800 w-full">
+                            <button 
+                                class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-r transition duration-200"
+                                onclick="alert('maaf sedang maintenance');"
+                            >Kirim</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                    <p>© 2025 Agroteknologi umu buton.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navbar = document.querySelector('.navbar');
+            const content = document.querySelector('.content');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navbar.classList.toggle('active');
+                content.classList.toggle('active');
+                
+                // Change menu button color when active
+                const menuLines = document.querySelectorAll('.menu-line');
+                if (this.classList.contains('active')) {
+                    menuLines.forEach(line => line.style.backgroundColor = '#fff');
+                } else {
+                    menuLines.forEach(line => line.style.backgroundColor = '#2ecc71');
+                }
+            });
+            
+            // Close navbar when clicking outside on mobile
+            if (window.innerWidth <= 768) {
+                content.addEventListener('click', function(e) {
+                    if (navbar.classList.contains('active') && !e.target.closest('.navbar') && !e.target.closest('.menu-toggle')) {
+                        menuToggle.classList.remove('active');
+                        navbar.classList.remove('active');
+                        content.classList.remove('active');
+                        document.querySelectorAll('.menu-line').forEach(line => line.style.backgroundColor = '#2ecc71');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

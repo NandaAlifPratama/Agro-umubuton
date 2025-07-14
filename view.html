@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang - Agroteknologi UMU Buton</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        .landing-bg {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            transition: background-image 1s cubic-bezier(.4,0,.2,1);
+        }
+        .landing-bg-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: linear-gradient(135deg, rgba(40,167,69,0.7) 0%, rgba(50,205,50,0.5) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+        .landing-content {
+            position: relative;
+            z-index: 3;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        .landing-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            animation: fadeInDown 1s;
+        }
+        .landing-btn {
+            padding: 0.8rem 2.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+            transition: background 0.3s, transform 0.2s;
+            outline: none;
+        }
+        .landing-btn:hover {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            transform: scale(1.05);
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 600px) {
+            .landing-title {
+                font-size: 1.5rem;
+            }
+            .landing-btn {
+                font-size: 1rem;
+                padding: 0.7rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-bg" id="landingBg"></div>
+    <div class="landing-bg-overlay"></div>
+    <div class="landing-content">
+        <div class="landing-title">Selamat datang di website utama Agroteknologi</div>
+        <a href="index.html">
+            <button class="landing-btn">Masuk ke Website</button>
+        </a>
+    </div>
+    <script>
+        // Daftar gambar background (bisa diganti sesuai kebutuhan)
+        const images = [
+            'assets/images/agro1.jpeg',
+            'assets/images/agro2.jpeg',
+            'assets/images/agro3.jpeg',
+            'assets/images/agro4.jpeg'
+        ];
+        let current = 0;
+        const bg = document.getElementById('landingBg');
+        function changeBg() {
+            bg.style.backgroundImage = `url('${images[current]}')`;
+            current = (current + 1) % images.length;
+        }
+        changeBg();
+        setInterval(changeBg, 4000);
+
+        // Cek apakah user sudah pernah melihat view.html
+        if (!localStorage.getItem('hasViewed')) {
+            // Redirect ke view.html
+            window.location.href = 'view.html';
+        }
+    </script>
+</body>
+</html>

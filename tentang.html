@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Agroteknologi UMU Buton</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html" style="animation: fadeIn 2s; font-weight: 700; font-size: 1.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                        <i class="bi bi-leaf-fill me-2" style="color: #28a745;"></i>Agro Umu Buton
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link nav-hover" href="index.html">
+                                    <i class="bi bi-house-door me-1"></i>Home
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-hover" href="index.html">
+                                    <i class="bi bi-info-circle me-1"></i>Tentang
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-hover" href="contact.html">
+                                    <i class="bi bi-telephone me-1"></i>Kontak
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-hover" href="check-out.html">
+                                    <i class="bi bi-tags me-1"></i>Harga
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-hover" href="faq.html">
+                                    <i class="bi bi-question-circle me-1"></i>FAQ
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle nav-hover" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-journal-text me-1"></i>Blog
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdownBlog">
+                                    <li><a class="dropdown-item" href="index.html"><i class="bi bi-house me-2"></i>Blog Home</a></li>
+                                    <li><a class="dropdown-item" href="blog-post.html"><i class="bi bi-file-text me-2"></i>Blog Post</a></li>
+                                    <li><a class="dropdown-item" href="admin-panel.html" onclick="return checkAccess()"><i class="bi bi-shield-lock me-2"></i>Panel Admin</a></li>
+                                    <script>
+                                        function checkAccess() {
+                                            const userData = localStorage.getItem('userData');
+                                            if (!userData) {
+                                                alert('Anda tidak memiliki akses ke halaman ini.');
+                                                return false;
+                                            }
+                                            return true;
+                                        }
+                                    </script>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle nav-hover" id="navbarDropdownPortfolio" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-briefcase me-1"></i>Portfolio
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end animate slideIn" aria-labelledby="navbarDropdownPortfolio">
+                                    <li><a class="dropdown-item" href="portfolio-overview.html"><i class="bi bi-person me-2"></i>Biodata</a></li>
+                                    <li><a class="dropdown-item" href="index.html"><i class="bi bi-collection me-2"></i>Items</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-hover" href="login.html">
+                                    <i class="bi bi-person-circle me-1"></i>Admin Login
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <style>
+                    @keyframes fadeIn {
+                        from { opacity: 0; transform: translateY(-20px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    
+                    @keyframes slideIn {
+                        from { opacity: 0; transform: translateY(-10px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    
+                    .navbar {
+                        backdrop-filter: blur(10px);
+                        transition: all 0.3s ease;
+                    }
+                    
+                    .navbar-brand:hover {
+                        transform: scale(1.05);
+                        transition: transform 0.3s ease;
+                    }
+                    
+                    .nav-hover {
+                        position: relative;
+                        transition: all 0.3s ease;
+                        border-radius: 5px;
+                        margin: 0 2px;
+                    }
+                    
+                    .nav-hover:hover {
+                        background: rgba(255,255,255,0.1);
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+                    }
+                    
+                    .nav-hover::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        width: 0;
+                        height: 2px;
+                        background: linear-gradient(90deg, #28a745, #20c997);
+                        transition: all 0.3s ease;
+                        transform: translateX(-50%);
+                    }
+                    
+                    .nav-hover:hover::after {
+                        width: 80%;
+                    }
+                    
+                    .dropdown-menu {
+                        background: rgba(30, 60, 114, 0.95);
+                        backdrop-filter: blur(10px);
+                        border: 1px solid rgba(255,255,255,0.1);
+                        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+                    }
+                    
+                    .dropdown-item {
+                        color: white;
+                        transition: all 0.3s ease;
+                        border-radius: 5px;
+                        margin: 2px 5px;
+                    }
+                    
+                    .dropdown-item:hover {
+                        background: rgba(255,255,255,0.1);
+                        transform: translateX(5px);
+                        color: #28a745;
+                    }
+                    
+                    .animate {
+                        animation: slideIn 0.3s ease;
+                    }
+                    
+                    .navbar-toggler {
+                        position: relative;
+                        width: 30px;
+                        height: 20px;
+                        background: transparent;
+                        border: none;
+                        cursor: pointer;
+                        padding: 0;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        transition: all 0.3s ease;
+                    }
+
+                    .navbar-toggler:hover {
+                        transform: scale(1.1);
+                    }
+
+                    .navbar-toggler span {
+                        display: block;
+                        width: 100%;
+                        height: 2px;
+                        background: linear-gradient(90deg, #28a745, #20c997);
+                        transition: all 0.3s ease;
+                        border-radius: 2px;
+                    }
+
+                    .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+                        transform: translateY(9px) rotate(45deg);
+                    }
+
+                    .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+                        transform: translateY(-9px) rotate(-45deg);
+                    }
+                </style>
+            </nav>
+            <!-- Header-->
+                
+               
+            <!-- INSERT_YOUR_CODE -->
+            <section class="py-4" id="website-visits">
+                <div class="container px-3 my-4">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 text-center">
+                            <div class="card shadow border-0 rounded-3 mb-3" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); color: #fff;">
+                                <div class="card-body py-4">
+                                    <h2 class="fw-bolder mb-2" style="font-size:1.6rem;">
+                                        <i class="bi bi-people-fill me-2" style="font-size:1.6rem; color:#28a745;"></i>
+                                        Total Kunjungan Website
+                                    </h2>
+                                    <p class="lead mb-3" style="font-size:1rem;">
+                                        Terima kasih telah berkunjung ke website kami! Berikut adalah total kunjungan hingga saat ini:
+                                    </p>
+                                    <div id="visit-counter" class="fw-bold" style="font-size:2rem; letter-spacing: 1px;">
+                                        <span id="visitCount">0</span>
+                                    </div>
+                                    <p class="mt-2 mb-0" style="font-size:0.95rem;">
+                                        Setiap kunjungan Anda sangat berarti bagi kami 🌱
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    // Menggunakan localStorage untuk simulasi counter sederhana di sisi client
+                    document.addEventListener("DOMContentLoaded", function() {
+                        let count = localStorage.getItem('visitCount');
+                        if (!count) {
+                            count = 1;
+                        } else {
+                            count = parseInt(count) + 1;
+                        }
+                        localStorage.setItem('visitCount', count);
+                        document.getElementById('visitCount').textContent = count.toLocaleString('id-ID');
+                    });
+                </script>
+            </section>
+            <!-- Features section-->
+             
+            <section class="py-5 bg-light">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-10 col-xl-7">
+                            <div class="text-center">
+                            <h2 class="fw-bolder bg-success bi-info-circle text-white justify-content-center">Tentang Kami</h2>
+                            <p class="lead fw-normal bi-tags mb-5">Agroteknologi umu buton merupakan salah satu program studi dari fakultas pertanian yang terdapat di salah satu kampus universitas muslim buton</p>
+                            <p class="lead fw-normal bi-tags mb-5"> 
+                                program studi ini bertujuan untuk memberikan pengetahuan dan keterampilan dalam bidang pertanian, khususnya dalam pengembangan teknologi pertanian yang berkelanjutan. kami berkomitmen untuk menciptakan lulusan yang siap menghadapi tantangan di dunia pertanian modern, dengan fokus pada inovasi, keberlanjutan, dan peningkatan produktivitas pertanian.
+                            </p>
+                            <button class="btn btn-success btn-lg" type="button" data-bs-target="#featuremodal" data-bs-toggle="modal">
+                                <i class="bi bi-info-circle me-2"></i>Selengkapnya
+                            </button>
+                </div>
+            </section>
+            <!-- Blog preview section-->
+            <section class="py-5 blog-section-bg" style="position: relative; overflow: hidden;">
+                <!-- Elemen dekoratif animasi -->
+                <div class="blog-bg-shapes">
+                    <div class="blog-shape blog-shape-1"></div>
+                    <div class="blog-shape blog-shape-2"></div>
+                    <div class="blog-shape blog-shape-3"></div>
+                    <div class="blog-shape blog-shape-4"></div>
+                </div>
+                <div class="container px-5 my-5 position-relative" style="z-index:2;">
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-8 col-xl-6">
+                            <div class="text-center">
+                                <h2 class="fw-bolder text-white" style="text-shadow: 2px 2px 8px rgba(44,62,80,0.3);">from blog page</h2>
+                                <p class="lead fw-normal text-light mb-5" style="text-shadow: 1px 1px 4px rgba(44,62,80,0.2);">beberapa kegiatan yang di lakukan oleh kami</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gx-5">
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0 blog-card-glass">
+                                <img class="card-img-top hover-effect" src="assets/images/pohon.jpg" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Kegiatan</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Kegiatan di BPP Betoambari: Budidaya Buah Naga</h5></a>
+                                    <p class="card-text mb-0">Di BPP Betoambari, kami melakukan berbagai kegiatan untuk meningkatkan pengetahuan masyarakat tentang budidaya buah naga. Kegiatan ini mencakup pelatihan, penyuluhan, dan praktik langsung di lapangan untuk memastikan hasil yang optimal.</p>
+                                </div>
+                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                            <div class="small">
+                                                <div class="fw-bold">BPP Betoambari</div>
+                                                <div class="text-muted">April, 2025 &middot; 6 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0 blog-card-glass">
+                                <img class="card-img-top hover-effect" src="assets/images/pohonnaga.jpg" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">Media</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Media BPP Betoambari: Meningkatkan Kesadaran Masyarakat</h5></a>
+                                    <p class="card-text mb-0">BPP Betoambari berkomitmen untuk menyebarluaskan informasi dan pengetahuan melalui berbagai media. Kami menyediakan konten edukatif yang bertujuan untuk meningkatkan kesadaran masyarakat tentang pertanian dan keberlanjutan. Melalui artikel, video, dan infografis, kami berharap dapat menginspirasi dan memberdayakan masyarakat untuk berpartisipasi dalam kegiatan pertanian yang lebih baik.</p>
+                                </div>
+                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                            <div class="small">
+                                                <div class="fw-bold">BPP Betoambari</div>
+                                                <div class="text-muted">April, 2025 &middot; 4 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mb-5">
+                            <div class="card h-100 shadow border-0 blog-card-glass">
+                                <img class="card-img-top hover-effect" src="assets/images/pohon2.jpeg" alt="..." />
+                                <div class="card-body p-4">
+                                    <div class="badge bg-primary bg-gradient rounded-pill mb-2">News</div>
+                                    <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Perkembangan Budidaya Buah Naga di BPP Betoambari</h5></a>
+                                    <p class="card-text mb-0">BPP Betoambari terus berupaya meningkatkan kualitas budidaya buah naga melalui pelatihan dan penyuluhan. Kami telah berhasil meningkatkan hasil panen dan kualitas buah, serta memberikan edukasi kepada petani lokal tentang teknik budidaya yang lebih baik.</p>
+                                </div>
+                                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                    <div class="d-flex align-items-end justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <img class="rounded-circle me-3" src="https://dummyimage.com/40x40/ced4da/6c757d" alt="..." />
+                                            <div class="small">
+                                                <div class="fw-bold">BPP Betoambari</div>
+                                                <div class="text-muted">April, 2025 &middot; 10 min read</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    .blog-section-bg {
+                        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    .blog-bg-shapes {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        pointer-events: none;
+                    }
+                    .blog-shape {
+                        position: absolute;
+                        border-radius: 50%;
+                        opacity: 0.25;
+                        filter: blur(2px);
+                        animation: blogFloat 8s ease-in-out infinite alternate;
+                    }
+                    .blog-shape-1 {
+                        width: 180px;
+                        height: 180px;
+                        background: radial-gradient(circle, #28a745 60%, #20c997 100%);
+                        top: 10%;
+                        left: 5%;
+                        animation-delay: 0s;
+                    }
+                    .blog-shape-2 {
+                        width: 120px;
+                        height: 120px;
+                        background: radial-gradient(circle, #ffb347 60%, #ffcc33 100%);
+                        top: 60%;
+                        left: 80%;
+                        animation-delay: 2s;
+                    }
+                    .blog-shape-3 {
+                        width: 100px;
+                        height: 100px;
+                        background: radial-gradient(circle, #6a82fb 60%, #fc5c7d 100%);
+                        top: 75%;
+                        left: 10%;
+                        animation-delay: 4s;
+                    }
+                    .blog-shape-4 {
+                        width: 80px;
+                        height: 80px;
+                        background: radial-gradient(circle, #f7971e 60%, #ffd200 100%);
+                        top: 20%;
+                        left: 70%;
+                        animation-delay: 1s;
+                    }
+                    @keyframes blogFloat {
+                        0% { transform: translateY(0) scale(1);}
+                        100% { transform: translateY(-30px) scale(1.1);}
+                    }
+                    .blog-card-glass {
+                        background: rgba(255,255,255,0.85);
+                        backdrop-filter: blur(6px);
+                        border-radius: 1.25rem;
+                        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.10);
+                        transition: box-shadow 0.3s;
+                        position: relative;
+                        z-index: 2;
+                    }
+                    .blog-card-glass:hover {
+                        box-shadow: 0 16px 40px 0 rgba(31,38,135,0.18);
+                    }
+                </style>
+            </section>
+            <style>
+                .hover-effect {
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+
+                .hover-effect:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+                }
+            </style>
+                    <!-- Call to action-->
+                    <aside class="bg-primary bg-gradient rounded-3 p-4 p-sm-5 mt-5">
+                        <div class="d-flex align-items-center justify-content-between flex-column flex-xl-row text-center text-xl-start">
+                            <div class="mb-4 mb-xl-0">
+                                <div class="fs-3 fw-bold text-white">New products, delivered to you.</div>
+                                <div class="text-white-50">Login terlebih dahulu untuk mendapatkan akses ke media online.</div>
+                            </div>
+                            <div class="ms-xl-4">
+                                <div class="input-group mb-2">
+                                    <input class="form-control" type="text" placeholder="Email address..." aria-label="Email address..." aria-describedby="button-newsletter" />
+                                    <button class="btn btn-outline-light" id="button-newsletter" type="button">Sign up</button>
+                                </div>
+                                <div class="small text-white-50">Kami menjaga tentang data privasi anda.</div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+        </main>
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; KSM-UMU Buton 2025</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                    <div class="col-auto"><div class="small m-0 text-white">Development Web &copy; Nanda Alif Pratama</div></div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

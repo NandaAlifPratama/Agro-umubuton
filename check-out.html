@@ -184,16 +184,58 @@
                 </div>
             </section>
             <!-- Section Produk -->
-            <section class="py-5">
+            <style>
+                .produk-section-bg {
+                    /* Gradient dengan overlay gambar buah naga */
+                    background: linear-gradient(135deg, rgba(40,167,69,0.85) 0%, rgba(32,201,151,0.85) 100%), 
+                        url('assets/images/bg-buah-naga.jpg') center/cover no-repeat;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .produk-section-bg::before {
+                    content: "";
+                    position: absolute;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    background: url('assets/images/ornamen-buah-naga.png') repeat;
+                    opacity: 0.08;
+                    z-index: 1;
+                }
+                .produk-section-bg .container {
+                    position: relative;
+                    z-index: 2;
+                }
+                /* Animasi bubble */
+                .bubble {
+                    position: absolute;
+                    border-radius: 50%;
+                    opacity: 0.18;
+                    animation: bubbleMove 12s infinite linear;
+                    z-index: 0;
+                }
+                .bubble1 { width: 120px; height: 120px; left: 5%; top: 60%; background: #fff; animation-delay: 0s;}
+                .bubble2 { width: 80px; height: 80px; left: 80%; top: 20%; background: #f8d7da; animation-delay: 2s;}
+                .bubble3 { width: 60px; height: 60px; left: 60%; top: 80%; background: #d4edda; animation-delay: 4s;}
+                .bubble4 { width: 100px; height: 100px; left: 30%; top: 10%; background: #c3e6cb; animation-delay: 6s;}
+                @keyframes bubbleMove {
+                    0% { transform: translateY(0) scale(1);}
+                    50% { transform: translateY(-40px) scale(1.1);}
+                    100% { transform: translateY(0) scale(1);}
+                }
+            </style>
+            <section class="py-5 produk-section-bg" style="position:relative;">
+                <div class="bubble bubble1"></div>
+                <div class="bubble bubble2"></div>
+                <div class="bubble bubble3"></div>
+                <div class="bubble bubble4"></div>
                 <div class="container px-5 my-5">
                     <div class="text-center">
-                        <h2 class="fw-bolder">Produk Kami</h2>
-                        <p class="lead fw-normal text-muted mb-5">Temukan produk terbaik untuk kebutuhan Anda</p>
+                        <h2 class="fw-bolder text-white" style="text-shadow:2px 2px 8px rgba(44,62,80,0.3);">Produk Kami</h2>
+                        <p class="lead fw-normal text-light mb-5" style="text-shadow:1px 1px 4px rgba(44,62,80,0.2);">Temukan produk terbaik untuk kebutuhan Anda</p>
                     </div>
                     <div class="row gx-5 row-cols-1 row-cols-md-3">
                         <!-- Card 1 -->
                         <div class="col-lg-6 mb-5">
-                            <div class="card h-100 shadow border-0 animate-on-scroll slide-in-left">
+                            <div class="card h-100 shadow border-0 animate-on-scroll slide-in-left" style="background:rgba(255,255,255,0.93);backdrop-filter:blur(2px);">
                                 <img class="card-img-top" src="assets/images/buah.jpg" alt="Produk 1" />
                                 <div class="card-body p-4">
                                     <div class="badge bg-danger bg-gradient rounded-pill mb-2 countdown-badge">Not Ready</div>
@@ -238,7 +280,7 @@
                         </div>
                         <!-- Card 2 -->
                         <div class="col-lg-6 mb-5">
-                            <div class="card h-100 shadow border-0">
+                            <div class="card h-100 shadow border-0" style="background:rgba(255,255,255,0.93);backdrop-filter:blur(2px);">
                                 <img class="card-img-top" src="assets/images/buah.jpg" alt="Produk 1" />
                                 <div class="card-body p-4">
                                     <div class="badge bg-danger bg-gradient rounded-pill mb-2 countdown-badge">Not Ready</div>
@@ -306,13 +348,13 @@
                         <p class="lead fw-normal text-muted mb-5">estimasi pembuahan buah naga!</p>
                     </div>
                     <div class="text-center">
-                        <div id="countdown" class="fs-1 fw-bold text-success"></div>
+                        <div id="countdown-3d" class="countdown-3d-wrapper d-inline-flex gap-3 justify-content-center"></div>
                     </div>
                 </div>
             </section>
 
             <script>
-                const countdownElement = document.getElementById('countdown');
+                const countdown3dElement = document.getElementById('countdown-3d');
                 const targetDate = new Date('June 28, 2025 00:00:00').getTime();
 
                 function setProdukReady() {
@@ -324,14 +366,23 @@
                     });
                 }
 
-                function updateCountdown() {
+                function create3dBox(value, label) {
+                    return `
+                        <div class="countdown-3d-box text-center">
+                            <div class="countdown-3d-face">${value}</div>
+                            <div class="countdown-3d-label">${label}</div>
+                        </div>
+                    `;
+                }
+
+                function updateCountdown3d() {
                     const now = new Date().getTime();
                     const timeLeft = targetDate - now;
 
                     if (timeLeft <= 0) {
-                        countdownElement.textContent = "The day has arrived!";
-                        setProdukReady(); // Panggil fungsi untuk mengganti badge
-                        clearInterval(timerInterval);
+                        countdown3dElement.innerHTML = `<span class="fs-2 fw-bold text-success">Hari yang dinanti telah tiba!</span>`;
+                        setProdukReady();
+                        clearInterval(timerInterval3d);
                         return;
                     }
 
@@ -340,12 +391,53 @@
                     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-                    countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                    countdown3dElement.innerHTML = 
+                        create3dBox(days, 'Hari') +
+                        create3dBox(hours, 'Jam') +
+                        create3dBox(minutes, 'Menit') +
+                        create3dBox(seconds, 'Detik');
                 }
 
-                const timerInterval = setInterval(updateCountdown, 1000);
-                updateCountdown();
+                const timerInterval3d = setInterval(updateCountdown3d, 1000);
+                updateCountdown3d();
             </script>
+            <style>
+                .countdown-3d-wrapper {
+                    perspective: 800px;
+                }
+                .countdown-3d-box {
+                    display: inline-block;
+                    margin: 0 10px;
+                    min-width: 80px;
+                }
+                .countdown-3d-face {
+                    background: linear-gradient(135deg, #28a745 60%, #20c997 100%);
+                    color: #fff;
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    border-radius: 18px;
+                    box-shadow: 0 8px 24px rgba(40, 167, 69, 0.25), 0 2px 8px rgba(44,62,80,0.10);
+                    padding: 24px 0 18px 0;
+                    margin-bottom: 8px;
+                    transform: rotateX(18deg) scale(1.05);
+                    transition: background 0.3s, box-shadow 0.3s;
+                    border-bottom: 4px solid #198754;
+                    letter-spacing: 2px;
+                    text-shadow: 0 2px 8px rgba(44,62,80,0.15);
+                }
+                .countdown-3d-box:hover .countdown-3d-face {
+                    background: linear-gradient(135deg, #20c997 60%, #28a745 100%);
+                    box-shadow: 0 12px 32px rgba(40, 167, 69, 0.35), 0 4px 12px rgba(44,62,80,0.15);
+                    transform: rotateX(0deg) scale(1.08);
+                }
+                .countdown-3d-label {
+                    color: #198754;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    text-shadow: 0 1px 2px rgba(44,62,80,0.08);
+                }
+            </style>
             <!-- Text berjalan (marquee) -->
             <div style="overflow-x: auto; white-space: nowrap; margin-top: 20px;">
                 <span style="display: inline-block; min-width: 100%; animation: marquee 15s linear infinite; font-weight: bold; color: #198754; font-size: 1.2rem;">
@@ -357,7 +449,7 @@
                     0%   { transform: translateX(100%);}
                     100% { transform: translateX(-100%);}
                 }
-            </style></div>
+            </style>
             <!-- About section two-->
             <section class="py-5">
                 <div class="container px-5 my-5">
